@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Collab ConsentMode for Magento
+ *
+ * @author      Marcin Jędrzejewski <m.jedrzejewski@collab.pl>
+ * @copyright   Copyright 2024 Collab
+ * @license     Open Source License (OSL v3)
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="head.additional">
+            <block
+                name="consent.initializer"
+                template="Collab_ConsentMode::script.phtml"
+                before="-"
+                ifconfig="collab_consent/general/enabled">
+                <arguments>
+                    <argument name="consent_mode_view_model" xsi:type="object">
+                        Collab\ConsentMode\ViewModel\ModeHandler
+                    </argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+
+        <referenceBlock name="cookie_notices" template="Collab_ConsentMode::html/notices.phtml">
+            <arguments>
+                <argument name="consent_mode_view_model" xsi:type="object">
+                    Collab\ConsentMode\ViewModel\ModeHandler
+                </argument>
+            </arguments>
+
+            <block name="consent.elements"
+                   template="Collab_ConsentMode::html/notices/elements.phtml"
+                   ifconfig="collab_consent/general/enabled" />
+        </referenceBlock>
+    </body>
+</page>

@@ -1,0 +1,46 @@
+<?php
+/**
+ * @category  Collab
+ * @package   Collab\ConsentMode
+ * @author    Marcin Jędrzejewski <m.jedrzejewski@collab.pl>
+ * @copyright 2024 Collab
+ * @license   MIT
+ */
+
+/**
+ * @var Template $block
+ * @var SecureHtmlRenderer $secureRenderer
+ * @var ModeHandler $consentViewModel
+ */
+
+use Magento\Framework\View\Element\Template;
+use Magento\Framework\View\Helper\SecureHtmlRenderer;
+use Collab\ConsentMode\ViewModel\ModeHandler;
+
+$consentViewModel = $block->getData('consent_mode_view_model');
+$passThroughBlock = $consentViewModel->isUrlPassThroughEnabled() ? 'gtag(\'set\', \'url_passthrough\', true);' : '';
+?>
+
+<?php
+$scriptString = <<<script
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    if (localStorage.getItem('consent-mode') === null) {
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied',
+            'analytics_storage': 'denied'
+        });
+    } else {
+        gtag('consent', 'default', JSON.parse(localStorage.getItem('consent-mode')));
+    }
+
+    {$passThroughBlock}
+script;
+?>
+
+<?= /* @noEscape */ $secureRenderer->renderTag('script', [], $scriptString, false); ?>

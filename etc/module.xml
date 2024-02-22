@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Collab ConsentMode for Magento
+ *
+ * @author      Marcin Jędrzejewski <m.jedrzejewski@collab.pl>
+ * @copyright   Copyright 2024 Collab
+ * @license     Open Source License (OSL v3)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Collab_ConsentMode">
+        <sequence>
+            <module name="Magento_Cookie"/>
+            <module name="Magento_Widget"/>
+        </sequence>
+    </module>
+</config>

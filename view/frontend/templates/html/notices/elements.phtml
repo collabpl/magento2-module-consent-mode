@@ -1,0 +1,38 @@
+<?php
+/**
+ * @category  Collab
+ * @package   Collab\ConsentMode
+ * @author    Marcin Jędrzejewski <m.jedrzejewski@collab.pl>
+ * @copyright 2024 Collab
+ * @license   MIT
+ */
+
+/**
+ * @var Template $block
+ * @var Escaper $escaper
+ */
+
+use Magento\Framework\Escaper;
+use Magento\Framework\View\Element\Template;
+?>
+
+<button id="btn-cookie-partial" class="action partial secondary">
+    <span><?= $escaper->escapeHtml(__('Allow Selected Only')) ?></span>
+</button>
+<button id="btn-cookie-reject" class="action allow secondary">
+    <span><?= $escaper->escapeHtml(__('Reject All')) ?></span>
+</button>
+
+<div class="consent-boxes">
+    <input type="checkbox" id="minimal" name="minimal" checked disabled >
+    <label for="minimal"><?= $escaper->escapeHtml(__('Necessary')) ?></label>
+
+    <input type="checkbox" id="consent-analytics" name="consent-analytics">
+    <label for="consent-analytics"><?= $escaper->escapeHtml(__('Analytics')) ?></label>
+
+    <input type="checkbox" id="consent-marketing" name="consent-marketing">
+    <label for="consent-marketing"><?= $escaper->escapeHtml(__('Marketing')) ?></label>
+
+    <input type="checkbox" id="consent-preferences" name="consent-preferences">
+    <label for="consent-preferences"><?= $escaper->escapeHtml(__('Preferences')) ?></label>
+</div>

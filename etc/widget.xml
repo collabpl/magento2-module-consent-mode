@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Collab ConsentMode for Magento
+ *
+ * @author      Marcin Jędrzejewski <m.jedrzejewski@collab.pl>
+ * @copyright   Copyright 2024 Collab
+ * @license     Open Source License (OSL v3)
+ */
+-->
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="collab_consent_mode_widget"
+            class="Collab\ConsentMode\Block\Widget\Consent"
+            is_email_compatible="true"
+            placeholder_image="Magento_Cms::images/widget_block.png">
+        <label translate="true">[Collab] Cookie Consent Widget</label>
+        <description translate="true">Allows You to show Cookie Consent options anywhere in the app</description>
+    </widget>
+</widgets>

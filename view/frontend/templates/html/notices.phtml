@@ -1,0 +1,87 @@
+<?php
+/**
+ * @category  Collab
+ * @package   Collab\ConsentMode
+ * @author    Marcin Jędrzejewski <m.jedrzejewski@collab.pl>
+ * @copyright 2024 Collab
+ * @license   MIT
+ */
+
+/** @var Cookie $cookieHelper */
+/** @var Notices $block */
+/** @var SecureHtmlRenderer $secureRenderer */
+/** @var ModeHandler $consentViewModel */
+/** @var Escaper $escaper */
+
+use Collab\ConsentMode\ViewModel\ModeHandler;
+use Magento\Cookie\Block\Html\Notices;
+use Magento\Cookie\Helper\Cookie;
+use Magento\Framework\Escaper;
+use Magento\Framework\View\Helper\SecureHtmlRenderer;
+
+$cookieHelper = $block->getData('cookieHelper');
+$consentViewModel = $block->getData('consent_mode_view_model');
+?>
+<?php if ($cookieHelper->isCookieRestrictionModeEnabled()): ?>
+    <div role="alertdialog"
+         tabindex="-1"
+         class="message global cookie<?= $consentViewModel->isEnabled() ? ' consent-mode-popup' : '' ?>"
+         id="notice-cookie-block">
+        <div role="document" class="content" tabindex="0">
+            <p>
+                <strong><?= $escaper->escapeHtml(__('We use cookies to make your experience better.')) ?></strong>
+                <span><?= $escaper->escapeHtml(__(
+                    'To comply with the new e-Privacy directive, we need to ask for your consent to set the cookies.'
+                )) ?>
+                </span>
+                <?= $escaper->escapeHtml(__('<a href="%1">Learn more</a>.', $block->getPrivacyPolicyLink()), ['a']) ?>
+            </p>
+            <div class="actions">
+                <button id="btn-cookie-allow" class="action allow primary">
+                    <span><?= $escaper->escapeHtml(__('Allow Cookies')) ?></span>
+                </button>
+                <?= $block->getChildHtml('consent.elements'); ?>
+            </div>
+        </div>
+    </div>
+    <?= /* @noEscape */ $secureRenderer->renderStyleAsTag("display: none;", 'div#notice-cookie-block') ?>
+    <script type="text/x-magento-init">
+        {
+            "#notice-cookie-block": {
+                "cookieNotices": {
+                    "cookieAllowButtonSelector": "#btn-cookie-allow",
+                    "cookieName": "<?= /* @noEscape */ Cookie::IS_USER_ALLOWED_SAVE_COOKIE ?>",
+                    "cookieValue": <?= /* @noEscape */ $cookieHelper->getAcceptedSaveCookiesWebsiteIds() ?>,
+                    "cookieLifetime": <?= /* @noEscape */ $cookieHelper->getCookieRestrictionLifetime() ?>,
+                    "noCookiesUrl": "<?= $escaper->escapeJs($block->getUrl('cookie/index/noCookies')) ?>"
+                }
+            }
+        }
+    </script>
+    <?php if ($consentViewModel->isEnabled()): ?>
+        <script type="text/x-magento-init">
+            {
+                "#notice-cookie-block .actions": {
+                    "Collab_ConsentMode/js/consent-handler": {
+                        "cookieBlock": "notice-cookie-block",
+                        "noCookiesUrl": "<?= $escaper->escapeJs($block->getUrl('cookie/index/noCookies')) ?>",
+                        "buttons": {
+                            "allow": "btn-cookie-allow",
+                            "reject": "btn-cookie-reject",
+                            "partial": "btn-cookie-partial"
+                        },
+                        "consentBoxes": {
+                            "minimal": "minimal",
+                            "analytics": "consent-analytics",
+                            "marketing": "consent-marketing",
+                            "preferences": "consent-preferences"
+                        },
+                        "cookieName": "<?= /* @noEscape */ Cookie::IS_USER_ALLOWED_SAVE_COOKIE ?>",
+                        "cookieValue": <?= /* @noEscape */ $cookieHelper->getAcceptedSaveCookiesWebsiteIds() ?>,
+                        "cookieLifetime": <?= /* @noEscape */ $cookieHelper->getCookieRestrictionLifetime() ?>
+                    }
+                }
+            }
+        </script>
+    <?php endif; ?>
+<?php endif; ?>

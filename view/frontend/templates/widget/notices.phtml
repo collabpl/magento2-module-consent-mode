@@ -1,0 +1,86 @@
+<?php
+/**
+ * @category  Collab
+ * @package   Collab\ConsentMode
+ * @author    Marcin Jędrzejewski <m.jedrzejewski@collab.pl>
+ * @copyright 2024 Collab
+ * @license   MIT
+ */
+
+/** @var Cookie $cookieHelper */
+/** @var Notices $block */
+/** @var SecureHtmlRenderer $secureRenderer */
+/** @var ModeHandler $consentViewModel */
+/** @var Escaper $escaper */
+
+use Collab\ConsentMode\ViewModel\ModeHandler;
+use Magento\Cookie\Block\Html\Notices;
+use Magento\Cookie\Helper\Cookie;
+use Magento\Framework\Escaper;
+use Magento\Framework\View\Helper\SecureHtmlRenderer;
+
+$cookieHelper = $block->getData('cookieHelper');
+$consentViewModel = $block->getData('consent_mode_view_model');
+?>
+<?php if ($consentViewModel->isEnabled()): ?>
+    <div id="consent-block" class="consent-mode-popup">
+        <div role="document" class="content" tabindex="0">
+            <p>
+                <strong><?= $escaper->escapeHtml(__('We use cookies to make your experience better.')) ?></strong>
+                <span><?= $escaper->escapeHtml(__(
+                    'To comply with the new e-Privacy directive, we need to ask for your consent to set the cookies.'
+                )) ?></span>
+                <?= $escaper->escapeHtml(__('<a href="%1">Learn more</a>.', $block->getPrivacyPolicyLink()), ['a']) ?>
+            </p>
+            <div class="actions">
+                <button id="btn-widget-cookie-allow" class="action allow primary">
+                    <span><?= $escaper->escapeHtml(__('Allow Cookies')) ?></span>
+                </button>
+                <button id="btn-widget-cookie-partial" class="action partial secondary">
+                    <span><?= $escaper->escapeHtml(__('Allow Selected Only')) ?></span>
+                </button>
+
+                <div class="consent-boxes">
+                    <input type="checkbox" id="widget-minimal" name="widget-minimal" checked disabled >
+                    <label for="widget-minimal"><?= $escaper->escapeHtml(__('Necessary')) ?></label>
+
+                    <input type="checkbox" id="widget-consent-analytics" name="widget-consent-analytics">
+                    <label for="widget-consent-analytics"><?= $escaper->escapeHtml(__('Analytics')) ?></label>
+
+                    <input type="checkbox" id="widget-consent-marketing" name="widget-consent-marketing">
+                    <label for="widget-consent-marketing"><?= $escaper->escapeHtml(__('Marketing')) ?></label>
+
+                    <input type="checkbox" id="widget-consent-preferences" name="widget-consent-preferences">
+                    <label for="widget-consent-preferences"><?= $escaper->escapeHtml(__('Preferences')) ?></label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/x-magento-init">
+        {
+            "#consent-block .actions": {
+                "Collab_ConsentMode/js/consent-handler": {
+                    "mode": "widget",
+                    "cookieBlock": "consent-block",
+                    "noCookiesUrl": "<?= $escaper->escapeJs($block->getUrl('cookie/index/noCookies')) ?>",
+                    "buttons": {
+                        "allow": "btn-widget-cookie-allow",
+                        "partial": "btn-widget-cookie-partial"
+                    },
+                    "consentBoxes": {
+                        "minimal": "widget-minimal",
+                        "analytics": "widget-consent-analytics",
+                        "marketing": "widget-consent-marketing",
+                        "preferences": "widget-consent-preferences"
+                    },
+                    "cookieName": "<?= /* @noEscape */ Cookie::IS_USER_ALLOWED_SAVE_COOKIE ?>",
+                    "cookieValue": <?= /* @noEscape */ $cookieHelper->getAcceptedSaveCookiesWebsiteIds() ?>,
+                    "cookieLifetime": <?= /* @noEscape */ $cookieHelper->getCookieRestrictionLifetime() ?>
+                }
+            }
+        }
+    </script>
+<?php else: ?>
+    <?= __('Consent Module needs to be enabled in order to display this widget...') ?>
+<?php endif; ?>

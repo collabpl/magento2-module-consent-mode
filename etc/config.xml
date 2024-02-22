@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Collab ConsentMode for Magento
+ *
+ * @author      Marcin Jędrzejewski <m.jedrzejewski@collab.pl>
+ * @copyright   Copyright 2024 Collab
+ * @license     Open Source License (OSL v3)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <collab_consent>
+            <general>
+                <enabled>1</enabled>
+                <url_passthrough>1</url_passthrough>
+            </general>
+        </collab_consent>
+    </default>
+</config>

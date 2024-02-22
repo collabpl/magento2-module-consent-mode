@@ -1,0 +1,38 @@
+{
+    "name": "collab/module-consent-mode",
+    "version": "1.0.0",
+    "description": "Cookie Consent Mode Popup Extension for Magento 2",
+    "type": "magento2-module",
+    "authors": [
+        {
+            "name": "Marcin Jędrzejewski",
+            "email": "m.jedrzejewski@collab.pl"
+        }
+    ],
+    "homepage": "https://github.com/collabpl/magento2-module-consent-mode",
+    "keywords": [
+        "magento",
+        "magento2",
+        "conset mode",
+        "cookie banner",
+        "banner",
+        "google ads",
+        "google analytics"
+    ],
+    "require": {
+        "magento/framework": "*",
+        "magento/module-cookie": "*",
+        "magento/module-widget": "*"
+    },
+    "license": [
+        "MIT"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Collab\\ConsentMode\\": ""
+        }
+    }
+}
