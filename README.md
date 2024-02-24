@@ -30,11 +30,10 @@ we are just using them
 
 ## Installation details
 ```bash
-composer config repositories.collab/module-consent-mode github git@github.com:collabpl/magento2-module-consent-mode.git
 composer require collab/module-consent-mode
 bin/magento setup:upgrade
 ```
 
 ## Screenshots
-![Consent Popup](docs/cookie_banner.jpeg)
-![Consent Widget Embeded in CMS Page](docs/cookie_banner_widget.jpeg)
+![Consent Widget Embeded in CMS Page](docs/cookie_banner.jpeg)
+
