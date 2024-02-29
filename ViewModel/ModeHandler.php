@@ -16,8 +16,10 @@ use Magento\Framework\View\Element\Block\ArgumentInterface;
 
 class ModeHandler implements ArgumentInterface
 {
+    protected Config $config;
+
     public function __construct(
-        protected readonly Config $config
+        Config $config
     ) {
     }
 

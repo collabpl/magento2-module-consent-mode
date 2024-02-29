@@ -19,10 +19,13 @@ use Magento\Store\Model\ScopeInterface;
 class Config extends DataObject implements ConfigInterface
 {
 
+    protected ScopeConfigInterface $scopeConfig;
+
     public function __construct(
-        protected ScopeConfigInterface $scopeConfig,
+        ScopeConfigInterface $scopeConfig,
         array $data = []
     ) {
+        $this->scopeConfig = $scopeConfig;
         parent::__construct($data);
     }
 

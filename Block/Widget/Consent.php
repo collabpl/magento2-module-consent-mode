@@ -22,13 +22,19 @@ class Consent extends Notices implements BlockInterface
 {
     protected $_template = "Collab_ConsentMode::widget/notices.phtml";
 
+    protected $consentMode;
+
+    protected $cookieHelper;
+
     public function __construct(
         Template\Context $context,
-        array $data = [],
-        ?CookieHelper $cookieHelper = null,
-        ?ConsentMode $consentMode = null
+        CookieHelper $cookieHelper,
+        ConsentMode $consentMode,
+        array $data = []
     ) {
-        $data['consent_mode_view_model'] = $consentMode ?? ObjectManager::getInstance()->get(ConsentMode::class);
+        $this->cookieHelper = $cookieHelper;
+        $this->consentMode = $consentMode;
+        $data['consent_mode_view_model'] = $this->consentMode;
         parent::__construct($context, $data, $cookieHelper);
     }
 }
