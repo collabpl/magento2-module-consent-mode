@@ -11,7 +11,7 @@ declare(strict_types=1);
 
 namespace Collab\ConsentMode\ViewModel;
 
-use Collab\ConsentMode\Model\Data\Config;
+use Collab\ConsentMode\Api\Data\ConfigInterface as Config;
 use Magento\Framework\View\Element\Block\ArgumentInterface;
 
 class ModeHandler implements ArgumentInterface

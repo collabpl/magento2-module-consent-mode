@@ -5,7 +5,7 @@
  *
  * @author      Marcin Jędrzejewski <m.jedrzejewski@collab.pl>
  * @copyright   Copyright 2024 Collab
- * @license     Open Source License (OSL v3)
+ * @license     MIT
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
