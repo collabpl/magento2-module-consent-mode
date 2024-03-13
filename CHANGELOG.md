@@ -11,6 +11,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+## 1.0.2 - 2024-03-13
+
+### Fixed
+
+- https://github.com/collabpl/magento2-module-consent-mode/issues/3
+
 ## 1.0.1 - 2024-03-02
 
 ### Added
@@ -24,6 +30,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 1.0.1 Proper use of ConfigInterface in the module
 - 1.0.1 Constraints for dependencies in composer.json
 
-[unreleased]: https://github.com/collabpl/magento2-module-consent-mode/compare/1.0.1...HEAD
+[unreleased]: https://github.com/collabpl/magento2-module-consent-mode/compare/1.0.2...HEAD
 [1.0.1]: https://github.com/collabpl/magento2-module-consent-mode/compare/1.0.0...1.0.1
 [1.0.0]: https://github.com/collabpl/magento2-module-consent-mode/releases/tag/1.0.0

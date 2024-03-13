@@ -16,7 +16,7 @@
                 <resource id="Magento_Backend::stores">
                     <resource id="Magento_Backend::stores_settings">
                         <resource id="Magento_Config::config">
-                            <resource id="Collab_Base::config">
+                            <resource id="Collab_Base::config" title="Collab" sortOrder="100">
                                 <resource id="Collab_ConsentMode::config" title="Cookie Consent Mode" sortOrder="200" />
                             </resource>
                         </resource>
