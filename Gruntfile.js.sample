@@ -11,7 +11,7 @@ module.exports = (grunt) => {
       },
       files: {
         "expand": "true",
-        "src": ['view/**/js/**/*.src.js', '!view/**/js/**/*.min.js', '!require-config.js'],
+        "src": ['view/**/js/**/*.src.js', 'view/**/templates/**/*.src.js', '!view/**/js/**/*.min.js', '!require-config.js'],
         "ext": '.js'
       }
     }
