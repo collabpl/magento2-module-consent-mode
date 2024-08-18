@@ -21,7 +21,7 @@
     ],
     "require": {
         "magento/framework": "~103.0.4",
-        "php": "~8.1.0||~8.2.0",
+        "php": "~8.1.0||~8.2.0||~8.3.0",
         "magento/module-cookie": "~100.4.4",
         "magento/module-widget": "~101.2.4"
     },
