@@ -1,0 +1,23 @@
+module.exports = (grunt) => {
+  grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
+    
+    uglify: {
+      options: {
+        "drop_console": "true",
+        "mangle": {
+          "toplevel": "true"
+        }
+      },
+      files: {
+        "expand": "true",
+        "src": ['view/**/js/**/*.src.js', '!view/**/js/**/*.min.js', '!require-config.js'],
+        "ext": '.js'
+      }
+    }
+  });
+
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  
+  grunt.registerTask('default', ['uglify']);
+};

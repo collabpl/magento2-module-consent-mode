@@ -1,0 +1,22 @@
+{
+  "name": "magento2-module-consent-mode",
+  "version": "1.0.0",
+  "description": "The Collab_ConsentMode module extends native Magento_Cookie module in following ways:",
+  "main": "Gruntfile.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/collabpl/magento2-module-consent-mode.git"
+  },
+  "author": "Marcin Jędrzejewski <m.jedrzejewski@collab.pl>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/collabpl/magento2-module-consent-mode/issues"
+  },
+  "homepage": "https://github.com/collabpl/magento2-module-consent-mode#readme"
+}
