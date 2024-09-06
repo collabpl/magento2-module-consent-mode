@@ -70,6 +70,10 @@ $consentViewModel = $block->getData('consent_mode_view_model');
                             "reject": "btn-cookie-reject",
                             "partial": "btn-cookie-partial"
                         },
+                        "reject": {
+                            "enabled": "<?= /* @noEscape */ $consentViewModel->isRejectButtonEnabled() ? 1 : 0 ?>",
+                            "behaviour": "<?= /* @noEscape */ $consentViewModel->getRejectButtonBehaviour() ?: 0 ?>"
+                        },
                         "consentBoxes": {
                             "minimal": "minimal",
                             "analytics": "consent-analytics",

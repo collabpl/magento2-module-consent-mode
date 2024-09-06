@@ -15,7 +15,11 @@ interface ConfigInterface
 {
     public const XML_PATH_IS_ENABLED = "collab_consent/general/enabled";
     public const XML_PATH_IS_URL_PASSTHROUGH_ENABLED = "collab_consent/general/url_passthrough";
+    public const XML_PATH_IS_REJECT_ENABLED = "collab_consent/general/reject_enabled";
+    public const XML_PATH_REJECT_BUTTON_BEHAVIOUR = "collab_consent/general/reject_behaviour";
 
     public function isEnabled(): bool;
     public function isUrlPassThroughEnabled(): bool;
+    public function isRejectButtonEnabled(): bool;
+    public function getRejectButtonBehaviour(): ?string;
 }

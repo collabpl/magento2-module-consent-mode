@@ -15,6 +15,7 @@
             <general>
                 <enabled>1</enabled>
                 <url_passthrough>1</url_passthrough>
+                <reject_enabled>1</reject_enabled>
             </general>
         </collab_consent>
     </default>

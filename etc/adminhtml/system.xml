@@ -29,6 +29,17 @@
                     <label>URL Passthrough</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
+                <field id="reject_enabled" translate="label" type="select" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Is Reject Button Visible</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="reject_behaviour" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Reject Button Behaviour</label>
+                    <source_model>Collab\ConsentMode\Model\Config\Source\Behaviour</source_model>
+                    <depends>
+                        <field id="reject_enabled">1</field>
+                    </depends>
+                </field>
             </group>
         </section>
     </system>
