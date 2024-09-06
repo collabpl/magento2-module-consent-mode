@@ -1,6 +1,6 @@
 {
     "name": "collab/module-consent-mode",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Cookie Consent Mode Popup Extension for Magento 2",
     "type": "magento2-module",
     "authors": [
