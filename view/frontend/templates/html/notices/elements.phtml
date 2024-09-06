@@ -10,18 +10,24 @@
 /**
  * @var Template $block
  * @var Escaper $escaper
+ * @var ModeHandler $consentViewModel
  */
 
+use Collab\ConsentMode\ViewModel\ModeHandler;
 use Magento\Framework\Escaper;
 use Magento\Framework\View\Element\Template;
+
+$consentViewModel = $block->getData('consent_mode_view_model');
 ?>
 
 <button id="btn-cookie-partial" class="action partial secondary">
     <span><?= $escaper->escapeHtml(__('Allow Selected Only')) ?></span>
 </button>
-<button id="btn-cookie-reject" class="action allow secondary">
-    <span><?= $escaper->escapeHtml(__('Reject All')) ?></span>
-</button>
+<?php if ($consentViewModel->isRejectButtonEnabled()): ?>
+    <button id="btn-cookie-reject" class="action allow secondary">
+        <span><?= $escaper->escapeHtml(__('Reject All')) ?></span>
+    </button>
+<?php endif; ?>
 
 <div class="consent-boxes">
     <input type="checkbox" id="minimal" name="minimal" checked disabled >

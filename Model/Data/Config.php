@@ -35,4 +35,14 @@ class Config extends DataObject implements ConfigInterface
     {
         return $this->scopeConfig->isSetFlag(self::XML_PATH_IS_URL_PASSTHROUGH_ENABLED, ScopeInterface::SCOPE_STORE);
     }
+
+    public function isRejectButtonEnabled(): bool
+    {
+        return $this->scopeConfig->isSetFlag(self::XML_PATH_IS_REJECT_ENABLED, ScopeInterface::SCOPE_STORE);
+    }
+
+    public function getRejectButtonBehaviour(): ?string
+    {
+        return $this->scopeConfig->getValue(self::XML_PATH_REJECT_BUTTON_BEHAVIOUR, ScopeInterface::SCOPE_STORE);
+    }
 }

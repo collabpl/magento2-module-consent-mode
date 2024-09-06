@@ -30,4 +30,14 @@ class ModeHandler implements ArgumentInterface
     {
         return $this->config->isUrlPassthroughEnabled();
     }
+
+    public function isRejectButtonEnabled(): bool
+    {
+        return $this->config->isRejectButtonEnabled();
+    }
+
+    public function getRejectButtonBehaviour(): ?string
+    {
+        return $this->config->getRejectButtonBehaviour();
+    }
 }

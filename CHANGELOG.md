@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 ### Changed
 
+## 1.0.4 - 2024-09-06
+### Added
+- Config for 'Reject' button visibility
+- Additional config for 'Reject' button behaviour
+### Fixed
+- https://github.com/collabpl/magento2-module-consent-mode/issues/5
+
 ## 1.0.3 - 2024-08-18
 ### Added
 - Grunt config with task for source js files minification
@@ -29,7 +36,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 1.0.1 Proper use of ConfigInterface in the module
 - 1.0.1 Constraints for dependencies in composer.json
 
-[unreleased]: https://github.com/collabpl/magento2-module-consent-mode/compare/1.0.3...HEAD
+[unreleased]: https://github.com/collabpl/magento2-module-consent-mode/compare/1.0.4...HEAD
+[1.0.4]: https://github.com/collabpl/magento2-module-consent-mode/compare/1.0.3...1.0.4
 [1.0.3]: https://github.com/collabpl/magento2-module-consent-mode/compare/1.0.2...1.0.3
 [1.0.2]: https://github.com/collabpl/magento2-module-consent-mode/compare/1.0.1...1.0.2
 [1.0.1]: https://github.com/collabpl/magento2-module-consent-mode/compare/1.0.0...1.0.1

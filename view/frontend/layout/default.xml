@@ -34,7 +34,13 @@
 
             <block name="consent.elements"
                    template="Collab_ConsentMode::html/notices/elements.phtml"
-                   ifconfig="collab_consent/general/enabled" />
+                   ifconfig="collab_consent/general/enabled">
+                <arguments>
+                    <argument name="consent_mode_view_model" xsi:type="object">
+                        Collab\ConsentMode\ViewModel\ModeHandler
+                    </argument>
+                </arguments>
+            </block>
         </referenceBlock>
     </body>
 </page>
