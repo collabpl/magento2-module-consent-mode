@@ -28,14 +28,14 @@ Yours `head.additional` block or it is placed at least before GTM init script.
   (module is shipped with dedicated widget for that)
 
 ## Configuration
-You can configure the module in the admin panel under `Stores > Configuration > Collab Extensions > Checkout Configuration`.
+You can configure the module in the admin panel under `Stores > Configuration > Collab Extensions > Google Consent Mode v2`.
 
 | Tab     | Config Field                   | Description                                                                                                                                                                                                                                   |
 |---------|--------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Google Consent Mode v2 | Enabled (bool: Select)         | If Yes then native consent popup is extended by functionalities provided by this module.                                                                                                                                                      |
-| Google Consent Mode v2 | Url Passthrough (bool: Select) | If Yes then minimal information about vistors is passed even without consent. More: [gTag Passthrough](https://developers.google.com/tag-platform/security/guides/consent?consentmode=advanced#passthroughs)                                  |
-| Google Consent Mode v2 | Is Reject Button Visible (bool: Select) | If Yes then Reject button is visible in the consent popup.                                                                                                                                                                                    |
-| Google Consent Mode v2 | Reject Button Behaviour (select: Select) | If Reject button is visible then you can choose what happens when user clicks on it. Native means that Magento functionality is preserved, 'Save Minimal Set Of Preferences' means that only necesarry checkbox is saved and popup is closed. |
+| General | Enabled (bool: Select)         | If Yes then native consent popup is extended by functionalities provided by this module.                                                                                                                                                      |
+| General | Url Passthrough (bool: Select) | If Yes then minimal information about vistors is passed even without consent. More: [gTag Passthrough](https://developers.google.com/tag-platform/security/guides/consent?consentmode=advanced#passthroughs)                                  |
+| General | Is Reject Button Visible (bool: Select) | If Yes then Reject button is visible in the consent popup.                                                                                                                                                                                    |
+| GGeneral | Reject Button Behaviour (select: Select) | If Reject button is visible then you can choose what happens when user clicks on it. Native means that Magento functionality is preserved, 'Save Minimal Set Of Preferences' means that only necesarry checkbox is saved and popup is closed. |
 
 ## Installation details
 ```bash
