@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 ### Changed
 
+## 1.2.0 - 2025-07-28
+### Changed
+- Revert for source js files minification
+
 ## 1.1.0 - 2025-04-11
 ### Added
 - php 8.4 support
@@ -44,6 +48,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 1.0.1 Constraints for dependencies in composer.json
 
 [unreleased]: https://github.com/collabpl/magento2-module-consent-mode/compare/1.0.4...HEAD
+[1.2.0]: https://github.com/collabpl/magento2-module-consent-mode/compare/1.1.0...1.2.0
+[1.1.0]: https://github.com/collabpl/magento2-module-consent-mode/compare/1.0.4...1.1.0
 [1.0.4]: https://github.com/collabpl/magento2-module-consent-mode/compare/1.0.3...1.0.4
 [1.0.3]: https://github.com/collabpl/magento2-module-consent-mode/compare/1.0.2...1.0.3
 [1.0.2]: https://github.com/collabpl/magento2-module-consent-mode/compare/1.0.1...1.0.2
